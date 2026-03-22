@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Firecode 🔥</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>🔥 Firecode</h1>
+        <p>Aprenda Python, CSS e Java de forma simples</p>
+
+        <!-- LOGIN -->
+        <div id="login">
+            <input type="text" id="username" placeholder="Usuário">
+            <input type="password" id="password" placeholder="Senha">
+
+            <button onclick="login()">Entrar</button>
+            <button onclick="mostrarCadastro()">Criar Conta</button>
+        </div>
+
+        <!-- CADASTRO -->
+        <div id="register" class="hidden">
+            <input type="text" id="newUser" placeholder="Usuário">
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="newPass" placeholder="Senha">
+
+            <button onclick="criarConta()">Cadastrar</button>
+            <button onclick="voltarLogin()">Voltar</button>
+        </div>
+
+        <!-- DASHBOARD -->
+        <div id="dashboard" class="hidden">
+            <h2 id="welcome"></h2>
+
+            <div class="modules">
+                <button onclick="abrirModulo('Python')">🐍 Python</button>
+                <button onclick="abrirModulo('CSS')">🎨 CSS</button>
+                <button onclick="abrirModulo('Java')">☕ Java</button>
+            </div>
+
+            <button onclick="logout()">Sair</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
