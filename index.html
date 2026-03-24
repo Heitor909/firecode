@@ -1,51 +1,301 @@
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Firecode 🔥</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FireCode - Plataforma de Aprendizagem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0c1f 0%, #1a1a2e 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #ff6b6b, #ffb347);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Botões de download */
+        .download-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ffb347);
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            margin: 0 10px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        /* Features grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.1);
+            border-color: #ffb347;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffb347;
+        }
+
+        /* Sobre */
+        .about {
+            background: rgba(0,0,0,0.3);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ffb347;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .tech-badge {
+            background: #ff6b6b;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        /* Requisitos */
+        .requirements {
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        li:before {
+            content: "🔥";
+            position: absolute;
+            left: 0;
+            color: #ffb347;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        a {
+            color: #ffb347;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .download-btn {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+            }
+        }
+    </style>
 </head>
 <body>
-
     <div class="container">
-
-        <h1>🔥 Firecode</h1>
-        <p>Aprenda Python, CSS e Java de forma simples</p>
-
-        <!-- LOGIN -->
-        <div id="login">
-            <input type="text" id="username" placeholder="Usuário">
-            <input type="password" id="password" placeholder="Senha">
-
-            <button onclick="login()">Entrar</button>
-            <button onclick="mostrarCadastro()">Criar Conta</button>
+        <div class="header">
+            <img src="firecode_logo.png" alt="FireCode Logo" class="logo">
+            <h1>FireCode</h1>
+            <div class="tagline">Aprenda Python, CSS, Java e JavaScript de forma interativa e gamificada!</div>
         </div>
 
-        <!-- CADASTRO -->
-        <div id="register" class="hidden">
-            <input type="text" id="newUser" placeholder="Usuário">
-            <input type="email" id="email" placeholder="Email">
-            <input type="password" id="newPass" placeholder="Senha">
-
-            <button onclick="criarConta()">Cadastrar</button>
-            <button onclick="voltarLogin()">Voltar</button>
+        <div class="download-section">
+            <a href="#" class="download-btn" id="downloadWin">⬇️ Baixar para Windows</a>
+            <a href="#" class="download-btn" id="downloadLinux">🐧 Baixar para Linux</a>
+            <a href="#" class="download-btn" id="downloadMac">🍎 Baixar para macOS</a>
         </div>
 
-        <!-- DASHBOARD -->
-        <div id="dashboard" class="hidden">
-            <h2 id="welcome"></h2>
-
-            <div class="modules">
-                <button onclick="abrirModulo('Python')">🐍 Python</button>
-                <button onclick="abrirModulo('CSS')">🎨 CSS</button>
-                <button onclick="abrirModulo('Java')">☕ Java</button>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <div class="feature-title">200+ Lições por Curso</div>
+                <p>4 cursos completos: Python, CSS, Java e JavaScript, cada um com 10 sessões e 20 lições detalhadas.</p>
             </div>
-
-            <button onclick="logout()">Sair</button>
+            <div class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <div class="feature-title">Gamificação</div>
+                <p>Ganhe XP, suba de nível, desbloqueie conquistas e acompanhe seu progresso com barras animadas.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <div class="feature-title">Segurança Total</div>
+                <p>Senhas criptografadas com SHA-256 + salt. Seus dados estão protegidos e armazenados localmente.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">Quiz Interativos</div>
+                <p>Teste seus conhecimentos ao final de cada lição e ganhe XP extra ao acertar!</p>
+            </div>
         </div>
 
+        <div class="about">
+            <h2>🔥 Sobre o FireCode</h2>
+            <p>FireCode é uma plataforma educacional completa desenvolvida em Pygame que transforma o aprendizado de programação em uma experiência envolvente e recompensadora. Com uma interface moderna, sistema de autenticação seguro e conteúdo extenso, você vai dominar as principais linguagens de programação enquanto se diverte.</p>
+            <div class="tech-list">
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">CSS</span>
+                <span class="tech-badge">Java</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">Pygame</span>
+            </div>
+        </div>
+
+        <div class="requirements">
+            <h2>📦 Requisitos Mínimos</h2>
+            <ul>
+                <li>Windows 7/8/10/11, Linux ou macOS</li>
+                <li>Processador 1.5 GHz ou superior</li>
+                <li>2 GB de RAM</li>
+                <li>Resolução de tela 1024x768 ou maior</li>
+                <li>Python 3.7+ (se for executar a partir do código fonte)</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>💡 Dica:</strong> O aplicativo não requer instalação. Basta baixar e executar!</p>
+        </div>
+
+        <div class="about">
+            <h2>🎯 Como Começar</h2>
+            <ol style="margin-left: 30px;">
+                <li>Baixe a versão para seu sistema operacional.</li>
+                <li>Extraia o arquivo (se for .zip).</li>
+                <li>Execute o arquivo <strong>FireCode.exe</strong> (Windows) ou <strong>FireCode</strong> (Linux/macOS).</li>
+                <li>Crie sua conta e comece a aprender!</li>
+            </ol>
+            <p style="margin-top: 20px;">🔒 <strong>Segurança:</strong> Suas senhas são criptografadas e armazenadas localmente. Nenhum dado é enviado para a internet.</p>
+        </div>
+
+        <footer>
+            <p>FireCode - Criado com ❤️ para a comunidade de programação.<br>
+            Versão 1.0 | Disponível gratuitamente no itch.io</p>
+            <p><a href="#">Política de Privacidade</a> | <a href="#">Suporte</a></p>
+        </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Substitua os links abaixo pelos links reais de download no itch.io
+        document.getElementById('downloadWin').href = "https://itch.io/embed/download/123456?platform=windows";
+        document.getElementById('downloadLinux').href = "https://itch.io/embed/download/123456?platform=linux";
+        document.getElementById('downloadMac').href = "https://itch.io/embed/download/123456?platform=mac";
+        // Caso queira redirecionar para a página do projeto, use:
+        // document.getElementById('downloadWin').onclick = function() { window.location.href = "https://seu-usuario.itch.io/firecode"; };
+    </script>
 </body>
 </html>
